@@ -2,7 +2,7 @@
 
 Snow is supposed to be a mobile app with information about all the coding contests on different websites, all in one place. Users can choose which contests to recieve periodic reminders about. This is a personal project, that I started in as my second year in university started. As the university started the development has come to a halt, as this is a side project, but I expect to finish this app before starting my third year at the university, so before August 2022.
 
-I have developed it completely using Flutter.
+I have developed it completely using Flutter and <a href="https://kontests.net/">this</a> amazing API, which made my life easier. You can find the pre-alpha release <a href="https://github.com/sahej-dev/Snow/releases/tag/v0.0.1-pre-alpha">here</a>. This is a work-in-progress and not a complete app by any means. Data fetching, parsing, organisation, and presentation to user is completely done. Reminders have some bugs that needs to be quashed.
 
 ## Screenshots
 (Following are from a very much work-in-progress pre-alpha version of the app)
