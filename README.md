@@ -7,7 +7,11 @@ I have developed it completely using Flutter and <a href="https://kontests.net/"
 ## Screenshots
 (Following are from a very much work-in-progress pre-alpha version of the app)
 
-
+<p float="left" align="middle">
+  <img src="https://github.com/sahej-dev/Snow/blob/main/Screenshots/home.jpeg" width="32%" />
+  <img src="https://github.com/sahej-dev/Snow/blob/main/Screenshots/filters.jpeg" width="32%" />
+  <img src="https://github.com/sahej-dev/Snow/blob/main/Screenshots/favorites.jpeg" width="32%" />
+</p>
 
 ### How Snow Came to Be
 Snow started out as a discussion among friends. 6-7 of use were quite active in competitive programming leading up to the summer vacations, and we usually hung around on Discord (Pandemic so online university). So me and one of my friends (Palash) decided to make our own discord bot which will tell us about contests from Codechef & Codeforces. It was a simple discord bot, we made it in Python and hosted it. A few weeks later I thought of making a mobile app which could also reminders for upcoming contests, and it would also help me learn in-depth app development.
