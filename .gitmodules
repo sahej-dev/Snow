@@ -1,0 +1,3 @@
+[submodule "packages/duration_picker_dialog_box"]
+	path = packages/duration_picker_dialog_box
+	url = https://github.com/sahej-dev/duration_picker_dialog_box
