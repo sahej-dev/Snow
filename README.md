@@ -3,13 +3,12 @@
   <h1 align="center">✨ Snow ✨</h1>
 </div>
 
-# <span style="color:#f96933">❄</span> Coding Contests Reminders for Competitive Programmers
+# Coding Contests Reminders for Competitive Programmers
 
 # About
 Snow is a simple, beautiful, no non-sense, cross-platform  mobile app which gives reminders about upcoming programming contests.
 
 ## Screenshots
-Snow adheres to [Material You](https://m3.material.io) spec and can dynamically pick an accent color from your phone's wallpaper.
 
 ### Dark Theme
 | <img src = "screenshots/home_dark.png" width = 192></img> | <img src = "screenshots/filters_dark.png" width = 192></img> | <img src = "screenshots/fav_dark.png" width = 192></img> | <img src = "screenshots/settings_dark.png" width = 192></img> |
@@ -24,9 +23,9 @@ Snow adheres to [Material You](https://m3.material.io) spec and can dynamically 
 ## Features
 - View upcoming and ongoing contests from supported platforms
 - 10+ supported platforms, including At Coder, Codeforeces, Hacker Earth etc.
-- Favorite a contest to receive reminders
+- Favorite a contest to receive reminders before its start time
 - Dynamic, Dark, and Light theme support
-- Beautifully designed with Material3 (You) spec
+- Beautifully designed with Material3 (You) design spec
 - Privacy focused as all data is stored on device ([more info](#privacy-policy))
 - Easy registerations: tap a contest's name to directly open its webpage
 - Customize reminder timings ([upcoming](#roadmap))
@@ -36,7 +35,7 @@ Snow adheres to [Material You](https://m3.material.io) spec and can dynamically 
 # Installation
 
 ## Method 1: GitHub (Recommended)
-You can directly download the latest release of the .apk file from the [releases page](https://github.com/sahej-dev/Snow/releases). If you are not sure about which .apk file you should download then just download the one named `snow.apk`.
+You can directly download the latest release of the .apk file from the [releases page](https://github.com/sahej-dev/Snow/releases). If you are not sure about which .apk file you should download then just download the one named `snow.apk` from the latest release.
 
 ## Method 2: Build from Source
 
