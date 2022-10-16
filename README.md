@@ -8,9 +8,9 @@ I have developed it completely using Flutter and <a href="https://kontests.net/"
 (Following are from a very much work-in-progress pre-alpha version of the app)
 
 <p float="left" align="middle">
-  <img src="https://github.com/sahej-dev/Snow/blob/main/Screenshots/home.jpeg" width="32%" />
-  <img src="https://github.com/sahej-dev/Snow/blob/main/Screenshots/filters.jpeg" width="32%" />
-  <img src="https://github.com/sahej-dev/Snow/blob/main/Screenshots/favorites.jpeg" width="32%" />
+  <img src="./Screenshots/home.jpeg" width="32%" />
+  <img src="./Screenshots/filters.jpeg" width="32%" />
+  <img src="./Screenshots/favorites.jpeg" width="32%" />
 </p>
 
 ### How Snow Came to Be
