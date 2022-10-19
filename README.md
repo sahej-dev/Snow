@@ -51,7 +51,7 @@ Clone this repository recusrsively because there are some submodule dependencies
 ```bash
 git clone --recursive https://www.github.com/sahej-dev/snow.git
 ```
-> ⚠️ Warning: Do NOT forget to include the `--recursive` flag, because without it you would not have all the dependencies required by Snow
+> ⚠️ Warning: Do NOT forget to include the `--recursive` flag, because without it you would not have all the dependencies required by Snow. This is because some dependencies are git submodules.
 
 Then change the working directory to the newly created `snow` directory by typing:
 ```bash
@@ -74,6 +74,14 @@ Now you should be able to find the `app-release.apk` on your desktop.
 If you have run into an issue while using the app then try clearing the app cache and date. If that does not solve the problem then feel free to report it on the [issues page](https://github.com/sahej-dev/Snow/issues). Reported bugs tend to be quashed sooner.
 
 # Development
+
+## Roadmap
+The following features, in no particular order, are planned to be added to Snow:
+
+- [ ] Ability to sort contests
+- [ ] Custom accent color chooser
+- [ ] Custom notification timings chooser
+
 
 ## Contributing
 You are welcome to contribute to Snow. If you are a developer familiar with Flutter then feel free to submit a pull request (PR) for any of the open issues. You can even create an issue for a feature in the [roadmap](#roadmap), if it does not have one already, and then submit a PR for the same.
