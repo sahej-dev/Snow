@@ -88,6 +88,10 @@ You are welcome to contribute to Snow. If you are a developer familiar with Flut
 
 If you are not familiar with Flutter, you can still contribute by opening new issues for bug reports, feature requests, and/or enhancements that you would like to as a user.
 
+If you are not a programmer but woule like to support Snow you can do that:
+- By leaving a star on the repository
+- By telling your friends about Snow
+
 Please read [CONTRIBUTING.md](.github/CONTRIBUTING.md) before making a contribution.
 
 ## Author(s)
