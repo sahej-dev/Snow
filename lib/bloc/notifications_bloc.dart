@@ -368,10 +368,12 @@ class NotificationsBloc
       date = 'on ${formatDate(contest.startDateTime, [D])}';
     }
 
-    final String duration =
-        'in ${prettyDuration(contest.startDateTime.difference(now), abbreviated: false)}';
+    final String time = 'at ${formatDate(
+      contest.startDateTime.toLocal(),
+      [hh, ':', nn, ' ', am],
+    )}';
 
     return '\'${contest.name}\' on ${contest.judge.name} '
-        'starting $date $duration';
+        'starting $date $time';
   }
 }
