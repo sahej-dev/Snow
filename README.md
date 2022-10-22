@@ -88,6 +88,8 @@ You are welcome to contribute to Snow. If you are a developer familiar with Flut
 
 If you are not familiar with Flutter, you can still contribute by opening new issues for bug reports, feature requests, and/or enhancements that you would like to as a user.
 
+Please read [CONTRIBUTING.md](.github/CONTRIBUTING.md) before making a contribution.
+
 ## Author(s)
 Lead Engineer, Designer, and Developer: [Sahej A. Singh](https://www.sahej.io)
 
