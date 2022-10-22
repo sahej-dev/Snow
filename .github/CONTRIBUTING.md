@@ -1,4 +1,4 @@
-# Contributing to Transcriptase
+# Contributing to Snow
 We love your input! We want to make contributing to this project as easy and transparent as possible, whether it's:
 
 - Reporting a bug
@@ -39,5 +39,4 @@ We largely follow [Effective Dart Styling](https://dart.dev/guides/language/effe
 By contributing, you agree that your contributions will be licensed under its MIT License.
 
 ## References
-This document was adapted from the open-source contribution guidelines by briandk [Facebook's Draft](https://gist.github.com/briandk/3d2e8b3ec8daf5a27a62
-)
+This document was adapted from the open-source contribution guidelines by [briandk](https://gist.github.com/briandk/3d2e8b3ec8daf5a27a62).
