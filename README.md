@@ -27,7 +27,7 @@ Snow is a simple, beautiful, no non-sense, cross-platform  mobile app which give
 - Dynamic, Dark, and Light theme support
 - Beautifully designed with Material3 (You) design spec
 - Privacy focused as all data is stored on device ([more info](#privacy-policy))
-- Easy registerations: tap a contest's name to directly open its webpage
+- Easy registrations: tap a contest's name to directly open its webpage
 - Customize reminder timings ([upcoming](#roadmap))
 - Choose a custom accent color ([upcoming](#roadmap))
 
