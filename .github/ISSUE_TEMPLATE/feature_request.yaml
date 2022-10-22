@@ -1,6 +1,6 @@
 name: Feature Request
 description: Suggest an idea for Snow
-labels: ["bug"]
+labels: ["enhancement"]
 title: "[FR] "
 body:
   - type: textarea
