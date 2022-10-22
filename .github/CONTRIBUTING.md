@@ -33,7 +33,9 @@ We use GitHub issues to track public bugs. Report a bug by [opening a new bug re
 People *love* thorough bug reports. I'm not even kidding.
 
 ## Use a Consistent Coding Style
-We largely follow [Effective Dart Styling](https://dart.dev/guides/language/effective-dart/style)
+We largely follow [Effective Dart Styling](https://dart.dev/guides/language/effective-dart/style).
+
+Moreover for all UI we follow the [material 3](https://m3.material.io) design spec.
 
 ## License
 By contributing, you agree that your contributions will be licensed under its MIT License.
