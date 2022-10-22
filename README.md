@@ -79,7 +79,7 @@ If you have run into an issue while using the app then try clearing the app cach
 The following features, in no particular order, are planned to be added to Snow:
 
 - [ ] Ability to sort contests
-- [ ] Custom accent color chooser
+- [ ] Custom accent color chooser (overwriting wallpaper accent color)
 - [ ] Custom notification timings chooser
 
 
@@ -87,8 +87,6 @@ The following features, in no particular order, are planned to be added to Snow:
 You are welcome to contribute to Snow. If you are a developer familiar with Flutter then feel free to submit a pull request (PR) for any of the open issues. You can even create an issue for a feature in the [roadmap](#roadmap), if it does not have one already, and then submit a PR for the same.
 
 If you are not familiar with Flutter, you can still contribute by opening new issues for bug reports, feature requests, and/or enhancements that you would like to as a user.
-
-Before making a PR please read the [Contributer Guidelines](https://github.com/sahej-dev/Snow/blob/main/CONTRIBUTING.md).
 
 ## Author(s)
 Lead Engineer, Designer, and Developer: [Sahej A. Singh](https://www.sahej.io)
