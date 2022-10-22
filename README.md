@@ -92,7 +92,7 @@ If you are not a programmer but woule like to support Snow you can do that:
 - By leaving a star on the repository
 - By telling your friends about Snow
 
-Please read [CONTRIBUTING.md](.github/CONTRIBUTING.md) before making a contribution.
+Please read [CONTRIBUTING.md](CONTRIBUTING.md) before making a contribution.
 
 ## Author(s)
 Lead Engineer, Designer, and Developer: [Sahej A. Singh](https://www.sahej.io)
