@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
 
-import 'package:hydrated_bloc/hydrated_bloc.dart';
 import 'package:equatable/equatable.dart';
+import 'package:hydrated_bloc/hydrated_bloc.dart';
+import 'package:json_annotation/json_annotation.dart';
 
 import '../constants/strings.dart';
 
 part 'settings_event.dart';
 part 'settings_state.dart';
+
+part 'settings_bloc.g.dart';
 
 class SettingsBloc extends HydratedBloc<SettingsEvent, SettingsState> {
   SettingsBloc()
@@ -41,15 +44,14 @@ class SettingsBloc extends HydratedBloc<SettingsEvent, SettingsState> {
 
   @override
   SettingsState? fromJson(Map<String, dynamic> json) {
-    ThemeMode themeMode = ThemeMode.values.byName(json['themeMode']);
-    return SettingsState(
-      themeMode: themeMode,
-      themeModeName: _getThemeModeName(themeMode),
-    );
+    try {
+      return _$SettingsStateFromJson(json);
+    } catch (e) {
+      return null;
+    }
   }
 
   @override
-  Map<String, dynamic>? toJson(SettingsState state) {
-    return {'themeMode': state.themeMode.name};
-  }
+  Map<String, dynamic> toJson(SettingsState state) =>
+      _$SettingsStateToJson(state);
 }

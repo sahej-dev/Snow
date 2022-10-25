@@ -4,6 +4,7 @@ import 'dart:developer';
 import 'package:equatable/equatable.dart';
 import 'package:date_format/date_format.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
+import 'package:json_annotation/json_annotation.dart';
 import 'package:contests_repository/contests_repository.dart';
 import 'package:awesome_notifications/awesome_notifications.dart';
 
@@ -11,6 +12,8 @@ import '../constants/strings.dart';
 
 part 'notifications_event.dart';
 part 'notifications_state.dart';
+
+part 'notifications_bloc.g.dart';
 
 class NotificationsBloc
     extends HydratedBloc<NotificationsEvent, NotificationsState> {
@@ -23,12 +26,12 @@ class NotificationsBloc
             notificationsSchedule: ContestNotificationsSchedule(
               [
                 Duration(minutes: 5),
-                Duration(minutes: 20),
-                Duration(hours: 1),
-                Duration(hours: 3),
-                Duration(hours: 6),
-                Duration(hours: 12),
-                Duration(hours: 24),
+                // Duration(minutes: 20),
+                // Duration(hours: 1),
+                // Duration(hours: 3),
+                // Duration(hours: 6),
+                // Duration(hours: 12),
+                // Duration(hours: 24),
               ],
             ),
             scheduledNotifications: [],
@@ -46,29 +49,6 @@ class NotificationsBloc
     on<NotificationsEventDurationRemoveRequested>(_onDurationRemoveRequested);
     on<NotificationsEventExpiredCleanup>(_onScheduleCleanup);
   }
-
-  // void _onPermissionsAskedCheckRequested(
-  //     NotificationsEventPermissionsAskedCheckRequested event,
-  //     Emitter<NotificationsState> emit) async {
-  //   bool permissionsGranted =
-  //       await _notificationsManager.isNotificationAllowed();
-
-  //   log(permissionsGranted.toString(), name: 'NOTIF PERMS');
-
-  //   if (permissionsGranted || event.forceHasAsked) {
-  //     emit(NotificationsState(
-  //       scheduledNotifications: state.scheduledNotifications,
-  //       notificationsSchedule: state.notificationsSchedule,
-  //       nextId: state.nextId,
-  //     ));
-  //   } else {
-  //     emit(NotificationsState(
-  //       scheduledNotifications: state.scheduledNotifications,
-  //       notificationsSchedule: state.notificationsSchedule,
-  //       nextId: state.nextId,
-  //     ));
-  //   }
-  // }
 
   void _onTrySchedulingUnscheduled(
       NotificationsEventTrySchedulingUnscheduled event,
@@ -251,66 +231,21 @@ class NotificationsBloc
 
   @override
   NotificationsState? fromJson(Map<String, dynamic> json) {
-    log('in load');
-    log('${(jsonDecode(json['notifs']) as List<dynamic>).map((e) => ContestNotification.fromJson(e)).toList()}',
-        name: 'scheduled notifs');
-    // log((jsonDecode(json['notifs']) as List<dynamic>)
-    //     .map((e) => ContestNotification.fromJson(e))
-    //     .toString());
-    // List<dynamic> l = jsonDecode(json['notifs']);
-
-    // List<dynamic> l = (jsonDecode(json['notifs']) as List<dynamic>)
-    //     .map((e) => ContestNotification.fromJson(e))
-    //     .toList();
-    // log(l.toString(), name: 'l');
-    // if (l.isNotEmpty) log(l.first.runtimeType.toString(), name: 'l ele type');
-    // log(l[0]['id'].toString());
-    // log(l[0].runtimeType.toString());
-    // log(
-    //     (jsonDecode(json['notifs']) as List<dynamic>)
-    //         .map((e) => ContestNotification.fromJson(e))
-    //         .toList()
-    //         .toString(),
-    //     name: 'scheduled notifs cache load');
-
-    // log(jsonDecode(json['schedule']).runtimeType.toString(),
-    //     name: 'decoded schedule');
-
-    int nextId = int.parse(json['nextId']);
-
-    // protection against potential overflow after years of use
-    if (nextId > 1000000000) {
-      nextId = 0;
+    try {
+      NotificationsState state = _$NotificationsStateFromJson(json);
+      return NotificationsState(
+        scheduledNotifications: state.scheduledNotifications,
+        notificationsSchedule: state.notificationsSchedule,
+        nextId: state.nextId > 1000000000 ? 0 : state.nextId,
+      );
+    } catch (e) {
+      return null;
     }
-    return NotificationsState(
-      scheduledNotifications: (jsonDecode(json['notifs']) as List<dynamic>)
-          .map((e) => ContestNotification.fromJson(e))
-          .toList(),
-      notificationsSchedule:
-          ContestNotificationsSchedule.fromJson(jsonDecode(json['schedule'])),
-      nextId: nextId,
-    );
   }
 
   @override
-  Map<String, dynamic>? toJson(NotificationsState state) {
-    log('in write');
-    log(jsonEncode(state.notificationsSchedule.toJson()),
-        name: 'save schedule');
-    log(state.nextId.toString(), name: 'saved next id');
-
-    log(
-        jsonEncode(state.scheduledNotifications.map((e) => e.toJson()).toList())
-            .toString(),
-        name: 'saved notifs');
-
-    return {
-      'notifs': jsonEncode(
-          state.scheduledNotifications.map((e) => e.toJson()).toList()),
-      'schedule': jsonEncode(state.notificationsSchedule.toJson()),
-      'nextId': state.nextId.toString(),
-    };
-  }
+  Map<String, dynamic>? toJson(NotificationsState state) =>
+      _$NotificationsStateToJson(state);
 
   Future<ContestNotification?> _scheduleGetContestNotification(
     Contest contest,

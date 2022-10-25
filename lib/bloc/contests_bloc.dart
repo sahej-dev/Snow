@@ -1,11 +1,14 @@
 import 'dart:convert';
 
-import 'package:hydrated_bloc/hydrated_bloc.dart';
 import 'package:equatable/equatable.dart';
+import 'package:hydrated_bloc/hydrated_bloc.dart';
+import 'package:json_annotation/json_annotation.dart';
 import 'package:contests_repository/contests_repository.dart';
 
 part 'contests_event.dart';
 part 'contests_state.dart';
+
+part 'contests_bloc.g.dart';
 
 class ContestsBloc extends HydratedBloc<ContestsEvent, ContestsState> {
   final ContestsRepository _contestsRepository;
@@ -198,24 +201,12 @@ class ContestsBloc extends HydratedBloc<ContestsEvent, ContestsState> {
   @override
   ContestsState? fromJson(Map<String, dynamic> json) {
     try {
-      List<Judge> selectedJudges =
-          (jsonDecode(json['selectedJudges']) as List<dynamic>)
-              .map((e) => Judge.values.byName(e.toString()))
-              .toList();
-
-      List<ContestStatus> selectedStatuses =
-          (jsonDecode(json['selectedStatuses']) as List<dynamic>)
-              .map((e) => ContestStatus.values.byName(e.toString()))
-              .toList();
-      // log(selectedJudges.toString(), name: 'loaded statuses');
+      ContestsState state = _$ContestsStateInitialFromJson(json);
 
       return ContestsStateInitial(
-        selectedJudges: selectedJudges,
-        selectedStatuses: selectedStatuses,
-        maxDurationFilter: MaxDurationFilter(
-          Duration(seconds: int.parse(json['maxDurationSecs'])),
-          json['maxDurationToggle'] == '1',
-        ),
+        selectedJudges: state.selectedJudges,
+        selectedStatuses: state.selectedStatuses,
+        maxDurationFilter: state.maxDurationFilter,
       );
     } catch (e) {
       return null;
@@ -223,18 +214,12 @@ class ContestsBloc extends HydratedBloc<ContestsEvent, ContestsState> {
   }
 
   @override
-  Map<String, dynamic>? toJson(ContestsState state) {
-    // log(jsonEncode(state.selectedJudges.map((judge) => judge.name).toList()),
-    //     name: 'cached judges');
-    return {
-      'selectedJudges': jsonEncode(
-        state.selectedJudges.map((judge) => judge.name).toList(),
-      ),
-      'selectedStatuses': jsonEncode(
-        state.selectedStatuses.map((status) => status.name).toList(),
-      ),
-      'maxDurationSecs': state.maxDurationFilter.duration.inSeconds.toString(),
-      'maxDurationToggle': state.maxDurationFilter.isOn ? '1' : '0',
-    };
-  }
+  Map<String, dynamic>? toJson(ContestsState state) =>
+      _$ContestsStateInitialToJson(
+        ContestsStateInitial(
+          selectedJudges: state.selectedJudges,
+          selectedStatuses: state.selectedStatuses,
+          maxDurationFilter: state.maxDurationFilter,
+        ),
+      );
 }

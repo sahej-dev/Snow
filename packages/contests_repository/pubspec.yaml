@@ -11,4 +11,9 @@ dependencies:
   http: ^0.13.5
   equatable: ^2.0.0
   shared_preferences: ^2.0.15
+  json_annotation: ^4.7.0
+
+dev_dependencies:
+  build_runner: ^2.0.0
+  json_serializable: ^6.0.0
   

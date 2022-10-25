@@ -1,5 +1,6 @@
 part of 'contests_bloc.dart';
 
+@JsonSerializable()
 class MaxDurationFilter extends Equatable {
   static const Duration infiniteDuration = Duration(days: 999999);
 
@@ -10,6 +11,11 @@ class MaxDurationFilter extends Equatable {
 
   @override
   List<Object?> get props => [duration, isOn];
+
+  factory MaxDurationFilter.fromJson(Map<String, dynamic> json) =>
+      _$MaxDurationFilterFromJson(json);
+
+  Map<String, dynamic> toJson() => _$MaxDurationFilterToJson(this);
 }
 
 abstract class ContestsState extends Equatable {
@@ -79,6 +85,7 @@ abstract class ContestsState extends Equatable {
   }
 }
 
+@JsonSerializable()
 class ContestsStateInitial extends ContestsState {
   const ContestsStateInitial({
     List<Judge> selectedJudges = const [

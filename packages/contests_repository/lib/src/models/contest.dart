@@ -1,9 +1,13 @@
 import 'package:uuid/uuid.dart';
 import 'package:equatable/equatable.dart';
+import 'package:json_annotation/json_annotation.dart';
 
 import '../utils.dart';
 import '../extensions.dart';
 
+part 'contest.g.dart';
+
+@JsonSerializable()
 class Contest with EquatableMixin {
   static final Uuid uuidGen = Uuid();
 
@@ -101,33 +105,10 @@ class Contest with EquatableMixin {
     );
   }
 
-  factory Contest.fromJson(Map<String, dynamic> json) {
-    return Contest(
-      uuid: json['id'],
-      name: json['name'],
-      link: Uri.parse(json['link']),
-      startDateTime: DateTime.parse(json['start']),
-      endDateTime: DateTime.parse(json['end']),
-      duration: Duration(seconds: int.parse(json['duration'])),
-      judge: Judge.values.byName(json['judge']),
-      status: ContestStatus.values.byName(json['status']),
-      isFavorite: int.parse(json['fav']) == 1,
-    );
-  }
+  factory Contest.fromJson(Map<String, dynamic> json) =>
+      _$ContestFromJson(json);
 
-  Map<String, dynamic> toJson() {
-    return {
-      'id': id,
-      'name': name,
-      'link': link.toString(),
-      'start': startDateTime.toIso8601String(),
-      'end': endDateTime.toIso8601String(),
-      'duration': duration.inSeconds.toString(),
-      'judge': judge.name,
-      'status': status.name,
-      'fav': _isFavorite ? '1' : '0'
-    };
-  }
+  Map<String, dynamic> toJson() => _$ContestToJson(this);
 
   static String _contestNameFromLink(String link, Judge judge) {
     if (judge == Judge.hackerEarth) {

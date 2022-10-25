@@ -1,5 +1,6 @@
 part of 'notifications_bloc.dart';
 
+@JsonSerializable()
 class ContestNotification extends Equatable {
   final int id;
   final String contestId;
@@ -16,25 +17,13 @@ class ContestNotification extends Equatable {
   @override
   List<Object?> get props => [id, contestId, seconds, isScheduled];
 
-  factory ContestNotification.fromJson(Map<String, dynamic> json) {
-    return ContestNotification(
-      id: int.parse(json['id']),
-      contestId: json['cid'],
-      seconds: int.parse(json['secs']),
-      isScheduled: json['isScheduled'] == '1',
-    );
-  }
+  factory ContestNotification.fromJson(Map<String, dynamic> json) =>
+      _$ContestNotificationFromJson(json);
 
-  Map<String, dynamic> toJson() {
-    return {
-      'id': id.toString(),
-      'cid': contestId,
-      'secs': seconds.toString(),
-      'isScheduled': isScheduled ? '1' : '0',
-    };
-  }
+  Map<String, dynamic> toJson() => _$ContestNotificationToJson(this);
 }
 
+@JsonSerializable()
 class ContestNotificationsSchedule extends Equatable {
   final List<Duration> durationsBeforeStartTime;
 
@@ -43,22 +32,13 @@ class ContestNotificationsSchedule extends Equatable {
   @override
   List<Object?> get props => [durationsBeforeStartTime];
 
-  factory ContestNotificationsSchedule.fromJson(Map<String, dynamic> json) {
-    return ContestNotificationsSchedule(
-      (json['durations'] as List)
-          .map((d) => Duration(seconds: int.parse(d.toString())))
-          .toList(),
-    );
-  }
+  factory ContestNotificationsSchedule.fromJson(Map<String, dynamic> json) =>
+      _$ContestNotificationsScheduleFromJson(json);
 
-  Map<String, dynamic> toJson() {
-    return {
-      'durations':
-          durationsBeforeStartTime.map((d) => d.inSeconds.toString()).toList(),
-    };
-  }
+  Map<String, dynamic> toJson() => _$ContestNotificationsScheduleToJson(this);
 }
 
+@JsonSerializable()
 class NotificationsState extends Equatable {
   final int nextId;
   final List<ContestNotification> scheduledNotifications;
