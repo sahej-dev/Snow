@@ -17,25 +17,6 @@ class ContestsRepository {
   ContestsLoadStatus onlineLoadStatus = ContestsLoadStatus.unknown;
   ContestsLoadStatus cacheLoadStatus = ContestsLoadStatus.unknown;
 
-  // TODO: Remove this in Production
-  // void addDummyContest(DateTime startDateTime) {
-  //   _contestsList?.add(
-  //     Contest(
-  //         name: 'Test Contest',
-  //         link: Uri.parse('https://sahej.io'),
-  //         startDateTime: startDateTime,
-  //         endDateTime: startDateTime.add(Duration(minutes: 10)),
-  //         duration: Duration(minutes: 10),
-  //         judge: Judge.others,
-  //         status: ContestStatus.upcoming),
-  //   );
-  // }
-
-  // TODO: Remove this in production
-  // void deleteAllDummyContests() {
-  //   _contestsList?.removeWhere((c) => c.link.toString() == 'https://sahej.io');
-  // }
-
   /// Fetches contests from local cache and api and returns them
   Future<List<Contest>?> getContestsList({
     bool forceNetworkFetch = false,

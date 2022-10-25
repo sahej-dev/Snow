@@ -1,7 +1,6 @@
 import 'dart:convert';
 import 'dart:developer';
 
-import 'package:duration/duration.dart';
 import 'package:equatable/equatable.dart';
 import 'package:date_format/date_format.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';

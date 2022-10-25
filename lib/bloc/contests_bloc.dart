@@ -1,7 +1,4 @@
-import 'dart:async';
 import 'dart:convert';
-import 'dart:developer';
-import 'dart:io';
 
 import 'package:hydrated_bloc/hydrated_bloc.dart';
 import 'package:equatable/equatable.dart';
@@ -240,15 +237,4 @@ class ContestsBloc extends HydratedBloc<ContestsEvent, ContestsState> {
       'maxDurationToggle': state.maxDurationFilter.isOn ? '1' : '0',
     };
   }
-
-  // @override
-  // void onTransition(Transition<ContestsEvent, ContestsState> transition) {
-  //   // TODO: implement onTransition
-  //   super.onTransition(transition);
-  //   log(
-  //     '${transition.currentState.runtimeType} to ${transition.nextState.runtimeType}',
-  //     name: 'transition',
-  //   );
-
-  // }
 }

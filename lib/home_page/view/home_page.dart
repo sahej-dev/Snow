@@ -1,6 +1,3 @@
-import 'dart:developer';
-
-import 'package:awesome_notifications/awesome_notifications.dart';
 import 'package:flutter/material.dart';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -11,7 +8,6 @@ import '../../constants/ui.dart';
 import '../../widgets/widgets.dart';
 import '../../constants/strings.dart';
 import '../../bloc/contests_bloc.dart';
-import '../../bloc/settings_bloc.dart';
 import '../../bloc/notifications_bloc.dart';
 
 class HomePage extends StatelessWidget {

@@ -18,7 +18,7 @@ class NoNetworkTopMessage extends StatelessWidget {
         ),
         child: Text(
           HomePageConstants.networkErrorTopMessage,
-          style: Theme.of(context).textTheme.caption,
+          style: Theme.of(context).textTheme.bodyMedium,
         ),
       ),
     );

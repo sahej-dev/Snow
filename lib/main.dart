@@ -1,6 +1,3 @@
-import 'dart:developer';
-import 'dart:io';
-
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
@@ -11,7 +8,6 @@ import 'package:awesome_notifications/awesome_notifications.dart';
 
 import './app.dart';
 import './constants/strings.dart';
-import './constants/permissions.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
