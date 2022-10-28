@@ -263,7 +263,7 @@ class NotificationsBloc
           id: id,
           channelKey: NotificationConstants.contestsRemindersChannelKey,
           title: NotificationConstants.notificationTitle,
-          body: _getNotificationBody(contest),
+          body: _getNotificationBody(contest, notifDateTime),
           wakeUpScreen: true,
           fullScreenIntent: true,
         ),
@@ -290,13 +290,11 @@ class NotificationsBloc
     );
   }
 
-  String _getNotificationBody(Contest contest) {
-    final DateTime now = DateTime.now();
-
+  String _getNotificationBody(Contest contest, DateTime notifDateTime) {
     late final String date;
-    if (contest.startDateTime.day == now.day) {
+    if (contest.startDateTime.day == notifDateTime.day) {
       date = 'today';
-    } else if (contest.startDateTime.day - 1 == now.day) {
+    } else if (contest.startDateTime.day - 1 == notifDateTime.day) {
       date = 'tomorrow';
     } else {
       date = 'on ${formatDate(contest.startDateTime, [D])}';
