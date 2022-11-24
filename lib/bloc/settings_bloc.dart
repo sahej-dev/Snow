@@ -5,7 +5,9 @@ import 'package:flutter/material.dart';
 import 'package:equatable/equatable.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
 import 'package:json_annotation/json_annotation.dart';
+import 'package:snow/constants/ui.dart';
 
+import '../constants/strings.dart';
 import '../constants/strings.dart';
 
 part 'settings_event.dart';
@@ -15,11 +17,11 @@ part 'settings_bloc.g.dart';
 
 class SettingsBloc extends HydratedBloc<SettingsEvent, SettingsState> {
   SettingsBloc()
-      : super(const SettingsState(
+      : super(SettingsState(
           themeMode: ThemeMode.system,
           themeModeName: SettingsConstants.systemThemeName,
           accentColorSource: AccentColorSource.custom,
-          accentColor: Color(0xff673ab7),
+          accentColor: themeChoiceColors[6],
         )) {
     on<SettingsEventThemeModeChangeRequested>(_onThemeChange);
     on<SettingsEventAccentSourceChangeRequested>(_onAccentSourceToggled);
