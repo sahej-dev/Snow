@@ -5,9 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:equatable/equatable.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
 import 'package:json_annotation/json_annotation.dart';
-import 'package:snow/constants/ui.dart';
 
-import '../constants/strings.dart';
+import '../constants/ui.dart';
 import '../constants/strings.dart';
 
 part 'settings_event.dart';
