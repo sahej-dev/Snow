@@ -26,12 +26,12 @@ class NotificationsBloc
             notificationsSchedule: ContestNotificationsSchedule(
               [
                 Duration(minutes: 5),
-                // Duration(minutes: 20),
-                // Duration(hours: 1),
-                // Duration(hours: 3),
-                // Duration(hours: 6),
-                // Duration(hours: 12),
-                // Duration(hours: 24),
+                Duration(minutes: 20),
+                Duration(hours: 1),
+                Duration(hours: 3),
+                Duration(hours: 6),
+                Duration(hours: 12),
+                Duration(hours: 24),
               ],
             ),
             scheduledNotifications: [],
@@ -235,7 +235,19 @@ class NotificationsBloc
       NotificationsState state = _$NotificationsStateFromJson(json);
       return NotificationsState(
         scheduledNotifications: state.scheduledNotifications,
-        notificationsSchedule: state.notificationsSchedule,
+        // TODO: change to load prev durations
+        // notificationsSchedule: state.notificationsSchedule,
+        notificationsSchedule: const ContestNotificationsSchedule(
+          [
+            Duration(minutes: 5),
+            Duration(minutes: 20),
+            Duration(hours: 1),
+            Duration(hours: 3),
+            Duration(hours: 6),
+            Duration(hours: 12),
+            Duration(hours: 24),
+          ],
+        ),
         nextId: state.nextId > 1000000000 ? 0 : state.nextId,
       );
     } catch (e) {
