@@ -95,6 +95,10 @@ class SettingsConstants {
       'If an unexpected error occurred then please report it here. '
       'If the problem persists try to \'Clear app data/cache\'.';
 
+  static const String featureRequestHeading = 'Feature Request';
+  static const String featureRequestSubheading =
+      'Request a feature or improvement from the developers';
+
   static const String legalHeading = 'Legal';
   static const String legalSubtitle =
       'View licences of software(s) used by Snow';
@@ -120,8 +124,10 @@ class MetaDataConstants {
   static const String personalWebsiteDisplayLink = 'sahej.io';
 
   static const String githubHomeLink = 'https://github.com/sahej-dev/Snow';
-  static const String githubNewIssueLink =
-      'https://github.com/sahej-dev/Snow/issues/new';
+  static const String githubBugReportLink =
+      'https://github.com/sahej-dev/Snow/issues/new?assignees=&labels=bug&template=bug_report.yaml&title=%5BBug%5D%3A+';
+  static const String githubFeatureRequestLink =
+      'https://github.com/sahej-dev/Snow/issues/new?assignees=&labels=enhancement&template=feature_request.yaml&title=%5BFR%5D%3A+';
 
   static const String shareText =
       'This is a great app which gives reminders of '

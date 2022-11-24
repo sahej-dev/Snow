@@ -129,7 +129,8 @@ class SettingsPage extends StatelessWidget {
                     ),
                   InkWell(
                     onTap: () {
-                      launchUrl(Uri.parse(MetaDataConstants.githubNewIssueLink),
+                      launchUrl(
+                          Uri.parse(MetaDataConstants.githubBugReportLink),
                           mode: LaunchMode.externalApplication);
                     },
                     child: const ListTile(
@@ -140,7 +141,23 @@ class SettingsPage extends StatelessWidget {
                   ),
                   InkWell(
                     onTap: () {
-                      launchUrl(Uri.parse(MetaDataConstants.githubHomeLink));
+                      launchUrl(
+                          Uri.parse(MetaDataConstants.githubFeatureRequestLink),
+                          mode: LaunchMode.externalApplication);
+                    },
+                    child: const ListTile(
+                      leading: SettingsIcon(Icons.auto_fix_high),
+                      title: Text(SettingsConstants.featureRequestHeading),
+                      subtitle:
+                          Text(SettingsConstants.featureRequestSubheading),
+                    ),
+                  ),
+                  InkWell(
+                    onTap: () {
+                      launchUrl(
+                        Uri.parse(MetaDataConstants.githubHomeLink),
+                        mode: LaunchMode.externalApplication,
+                      );
                     },
                     child: const ListTile(
                       leading: SettingsIcon(MdiIcons.github),
