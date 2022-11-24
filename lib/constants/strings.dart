@@ -68,6 +68,12 @@ class SettingsConstants {
   static const String darkThemeName = 'Kinda Dark';
   static const String lightThemeName = 'Clearly White';
 
+  static const String useMaterial3Heading = 'Use Material You';
+  static const String useMaterial3Subheading =
+      'Only works if your device supports Material You';
+
+  static const String accentColorHeading = 'Theme Seed Color';
+
   static const String manageNotificationsHeading = 'Manage Notifications';
   static const String manageNotificationsSubheading =
       'Allow/Disallow notifications';

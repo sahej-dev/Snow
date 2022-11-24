@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 
 import 'package:equatable/equatable.dart';
@@ -16,17 +18,23 @@ class SettingsBloc extends HydratedBloc<SettingsEvent, SettingsState> {
       : super(const SettingsState(
           themeMode: ThemeMode.system,
           themeModeName: SettingsConstants.systemThemeName,
+          accentColorSource: AccentColorSource.material3,
+          accentColor: Color(0xff673ab7),
         )) {
-    on<SettingsEventThemeChangeRequested>(_onThemeChange);
+    on<SettingsEventThemeModeChangeRequested>(_onThemeChange);
+    on<SettingsEventAccentSourceChangeRequested>(_onAccentSourceToggled);
+    on<SettingsEventAccentColorChangeRequested>(_onAccentColorChanged);
   }
 
-  void _onThemeChange(
-      SettingsEventThemeChangeRequested event, Emitter<SettingsState> emit) {
+  void _onThemeChange(SettingsEventThemeModeChangeRequested event,
+      Emitter<SettingsState> emit) {
     if (event.newThemeMode == state.themeMode) return;
 
     emit(SettingsState(
       themeMode: event.newThemeMode,
       themeModeName: _getThemeModeName(event.newThemeMode),
+      accentColorSource: state.accentColorSource,
+      accentColor: state.accentColor,
     ));
   }
 
@@ -40,6 +48,30 @@ class SettingsBloc extends HydratedBloc<SettingsEvent, SettingsState> {
       default:
         return SettingsConstants.darkThemeName;
     }
+  }
+
+  void _onAccentSourceToggled(SettingsEventAccentSourceChangeRequested event,
+      Emitter<SettingsState> emit) {
+    if (event.newSource == state.accentColorSource) return;
+
+    emit(SettingsState(
+      themeMode: state.themeMode,
+      themeModeName: state.themeModeName,
+      accentColorSource: event.newSource,
+      accentColor: state.accentColor,
+    ));
+  }
+
+  void _onAccentColorChanged(SettingsEventAccentColorChangeRequested event,
+      Emitter<SettingsState> emit) {
+    if (state.accentColor == event.newColor) return;
+
+    emit(SettingsState(
+      themeMode: state.themeMode,
+      themeModeName: state.themeModeName,
+      accentColorSource: state.accentColorSource,
+      accentColor: event.newColor,
+    ));
   }
 
   @override

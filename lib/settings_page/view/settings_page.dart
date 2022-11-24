@@ -1,3 +1,4 @@
+import 'dart:developer';
 import 'dart:io';
 
 import 'package:flutter/material.dart';
@@ -8,6 +9,7 @@ import 'package:url_launcher/url_launcher.dart';
 import 'package:optimize_battery/optimize_battery.dart';
 import 'package:awesome_notifications/awesome_notifications.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+import 'package:flutter_material_color_picker/flutter_material_color_picker.dart';
 
 import '../widgets/widgets.dart';
 import '../../constants/ui.dart';
@@ -56,7 +58,7 @@ class SettingsPage extends StatelessWidget {
                       // ignore: use_build_context_synchronously
                       context
                           .read<SettingsBloc>()
-                          .add(SettingsEventThemeChangeRequested(newTheme));
+                          .add(SettingsEventThemeModeChangeRequested(newTheme));
                     },
                     child: ListTile(
                       leading: const SettingsIcon(
@@ -66,6 +68,26 @@ class SettingsPage extends StatelessWidget {
                       subtitle: Text(state.themeModeName),
                     ),
                   ),
+                  ListTile(
+                    leading: const SettingsIcon(MdiIcons.materialDesign),
+                    title: const Text(SettingsConstants.useMaterial3Heading),
+                    subtitle:
+                        const Text(SettingsConstants.useMaterial3Subheading),
+                    trailing: Switch.adaptive(
+                      onChanged: (bool value) {
+                        context
+                            .read<SettingsBloc>()
+                            .add(SettingsEventAccentSourceChangeRequested(
+                              value
+                                  ? AccentColorSource.material3
+                                  : AccentColorSource.custom,
+                            ));
+                      },
+                      value: state.accentColorSource ==
+                          AccentColorSource.material3,
+                    ),
+                  ),
+                  const ThemeSeedColorTile(),
                   InkWell(
                     onTap: () {
                       context
