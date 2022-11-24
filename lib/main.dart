@@ -9,6 +9,12 @@ import 'package:awesome_notifications/awesome_notifications.dart';
 import './app.dart';
 import './constants/strings.dart';
 
+class NotificationsListeners {
+  @pragma("vm:entry-point")
+  static Future<void> doNotthing(
+      ReceivedNotification receivedNotification) async {}
+}
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
@@ -31,6 +37,13 @@ void main() async {
       )
     ],
     debug: true,
+  );
+
+  AwesomeNotifications().setListeners(
+    onActionReceivedMethod: NotificationsListeners.doNotthing,
+    onNotificationCreatedMethod: NotificationsListeners.doNotthing,
+    onNotificationDisplayedMethod: NotificationsListeners.doNotthing,
+    onDismissActionReceivedMethod: NotificationsListeners.doNotthing,
   );
 
   // bool permissionsGranted = await notificationsPlugin.isNotificationAllowed();
