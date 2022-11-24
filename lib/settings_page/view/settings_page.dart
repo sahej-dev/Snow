@@ -68,25 +68,26 @@ class SettingsPage extends StatelessWidget {
                       subtitle: Text(state.themeModeName),
                     ),
                   ),
-                  ListTile(
-                    leading: const SettingsIcon(MdiIcons.materialDesign),
-                    title: const Text(SettingsConstants.useMaterial3Heading),
-                    subtitle:
-                        const Text(SettingsConstants.useMaterial3Subheading),
-                    trailing: Switch.adaptive(
-                      onChanged: (bool value) {
-                        context
-                            .read<SettingsBloc>()
-                            .add(SettingsEventAccentSourceChangeRequested(
-                              value
-                                  ? AccentColorSource.material3
-                                  : AccentColorSource.custom,
-                            ));
-                      },
-                      value: state.accentColorSource ==
-                          AccentColorSource.material3,
+                  if (Platform.isAndroid)
+                    ListTile(
+                      leading: const SettingsIcon(MdiIcons.materialDesign),
+                      title: const Text(SettingsConstants.useMaterial3Heading),
+                      subtitle:
+                          const Text(SettingsConstants.useMaterial3Subheading),
+                      trailing: Switch.adaptive(
+                        onChanged: (bool value) {
+                          context
+                              .read<SettingsBloc>()
+                              .add(SettingsEventAccentSourceChangeRequested(
+                                value
+                                    ? AccentColorSource.material3
+                                    : AccentColorSource.custom,
+                              ));
+                        },
+                        value: state.accentColorSource ==
+                            AccentColorSource.material3,
+                      ),
                     ),
-                  ),
                   const ThemeSeedColorTile(),
                   InkWell(
                     onTap: () {

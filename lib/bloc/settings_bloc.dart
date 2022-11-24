@@ -18,7 +18,7 @@ class SettingsBloc extends HydratedBloc<SettingsEvent, SettingsState> {
       : super(const SettingsState(
           themeMode: ThemeMode.system,
           themeModeName: SettingsConstants.systemThemeName,
-          accentColorSource: AccentColorSource.material3,
+          accentColorSource: AccentColorSource.custom,
           accentColor: Color(0xff673ab7),
         )) {
     on<SettingsEventThemeModeChangeRequested>(_onThemeChange);
