@@ -28,8 +28,8 @@ Snow is a simple, beautiful, no non-sense, cross-platform  mobile app which give
 - Beautifully designed with Material3 (You) design spec
 - Privacy focused as all data is stored on device ([more info](#privacy-policy))
 - Easy registrations: tap a contest's name to directly open its webpage
+- Choose a custom accent color and express yourself
 - Customize reminder timings ([upcoming](#roadmap))
-- Choose a custom accent color ([upcoming](#roadmap))
 
 
 # Installation
@@ -79,7 +79,7 @@ If you have run into an issue while using the app then try clearing the app cach
 The following features, in no particular order, are planned to be added to Snow:
 
 - [ ] Ability to sort contests
-- [ ] Custom accent color chooser (overwriting wallpaper accent color)
+- [x] Custom accent color chooser (overwriting wallpaper accent color)
 - [ ] Custom notification timings chooser
 
 
