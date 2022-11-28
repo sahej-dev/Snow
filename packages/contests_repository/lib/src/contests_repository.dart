@@ -27,9 +27,7 @@ class ContestsRepository {
 
     await _buildContestsList();
 
-    log('cache started', name: 'cache');
-    cacheContests();
-    log('cache ended', name: 'cache');
+    // cacheContests();
 
     _contestsList?.sort((a, b) => a.startDateTime.compareTo(b.startDateTime));
 
@@ -85,6 +83,10 @@ class ContestsRepository {
         cachedFavMap[apiContest.uniqueStr] ?? false,
         apiContest,
       );
+      if (apiContest.uniqueStr ==
+          'Codeforces Global Round 24 https://codeforces.com/contestRegistration/1764') {
+        log(toBeAddedContest.toString(), name: 'LOADED CONTEST');
+      }
 
       _contestsList!.add(toBeAddedContest);
     }
@@ -136,9 +138,10 @@ class ContestsRepository {
         continue;
       }
       // TODO: update Contest.status for loaded contests
-      cachedContests.add(Contest.fromJson(jsonDecode(contestsString)));
+      Contest c = Contest.fromJson(jsonDecode(contestsString));
+      cachedContests.add(Contest.withIdAndFav(uuids[i], c.isFavorite, c));
     }
-
+    log(cachedContests[17].toString(), name: 'LOADED CONTEST RAW');
     return cachedContests;
   }
 
@@ -165,6 +168,7 @@ class ContestsRepository {
     if (_contestsList == null) {
       return;
     }
+    log('cache started', name: 'cache');
 
     final Future<SharedPreferences> tempPrefs = SharedPreferences.getInstance();
     List<String> uuids = _contestsList!.map((contest) => contest.id).toList();
@@ -180,6 +184,7 @@ class ContestsRepository {
           uuids[i], jsonEncode(_contestsList![i].toJson()));
       if (!everythingAlright) return;
     }
+    log('cache ended', name: 'cache');
   }
 
   void setFavoriteStatus(String contestId, bool favStatus) async {

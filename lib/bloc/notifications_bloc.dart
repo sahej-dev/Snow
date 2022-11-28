@@ -127,6 +127,7 @@ class NotificationsBloc
     List<ContestNotification> newNotifs = [...state.scheduledNotifications];
     newNotifs.removeWhere((notif) {
       if (notif.contestId == event.contest.id) {
+        log('Cancelling notif by unfav: ${notif.id}');
         _notificationsManager.cancel(notif.id);
         return true;
       }
@@ -213,6 +214,7 @@ class NotificationsBloc
 
     notifs.removeWhere((notif) {
       if (!contestIds.contains(notif.contestId)) {
+        log('Notification canceled on cleanup: ${notif.id}');
         _notificationsManager.cancel(notif.id);
         return true;
       }
@@ -233,6 +235,7 @@ class NotificationsBloc
   NotificationsState? fromJson(Map<String, dynamic> json) {
     try {
       NotificationsState state = _$NotificationsStateFromJson(json);
+      log(state.scheduledNotifications.toString(), name: 'SCHEDULED NOTIFS');
       return NotificationsState(
         scheduledNotifications: state.scheduledNotifications,
         // TODO: change to load prev durations
