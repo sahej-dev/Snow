@@ -11,7 +11,7 @@ import './constants/strings.dart';
 
 class NotificationsListeners {
   @pragma("vm:entry-point")
-  static Future<void> doNotthing(
+  static Future<void> doNothing(
       ReceivedNotification receivedNotification) async {}
 }
 
@@ -40,10 +40,10 @@ void main() async {
   );
 
   AwesomeNotifications().setListeners(
-    onActionReceivedMethod: NotificationsListeners.doNotthing,
-    onNotificationCreatedMethod: NotificationsListeners.doNotthing,
-    onNotificationDisplayedMethod: NotificationsListeners.doNotthing,
-    onDismissActionReceivedMethod: NotificationsListeners.doNotthing,
+    onActionReceivedMethod: NotificationsListeners.doNothing,
+    onNotificationCreatedMethod: NotificationsListeners.doNothing,
+    onNotificationDisplayedMethod: NotificationsListeners.doNothing,
+    onDismissActionReceivedMethod: NotificationsListeners.doNothing,
   );
 
   // bool permissionsGranted = await notificationsPlugin.isNotificationAllowed();
