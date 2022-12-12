@@ -40,13 +40,6 @@ void main() async {
     onDismissActionReceivedMethod: NotificationsListeners.doNothing,
   );
 
-  // bool permissionsGranted = await notificationsPlugin.isNotificationAllowed();
-  // if (!permissionsGranted) {
-  //   notificationsPlugin.requestPermissionToSendNotifications(
-  //     permissions: NotificationsPermissions.permissions,
-  //   );
-  // }
-
   HydratedBloc.storage = await HydratedStorage.build(
     storageDirectory: kIsWeb
         ? HydratedStorage.webStorageDirectory
