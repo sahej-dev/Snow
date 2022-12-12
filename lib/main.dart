@@ -9,12 +9,6 @@ import 'package:awesome_notifications/awesome_notifications.dart';
 import './app.dart';
 import './constants/strings.dart';
 
-class NotificationsListeners {
-  @pragma("vm:entry-point")
-  static Future<void> doNothing(
-      ReceivedNotification receivedNotification) async {}
-}
-
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
@@ -65,4 +59,10 @@ void main() async {
     contestsRepository: contestsRepository,
     notificationsPlugin: notificationsPlugin,
   ));
+}
+
+class NotificationsListeners {
+  @pragma("vm:entry-point")
+  static Future<void> doNothing(
+      ReceivedNotification receivedNotification) async {}
 }
