@@ -3,5 +3,5 @@ class LocalStorageConsts {
 }
 
 class ApiConstants {
-  static final String apiUrl = 'https://kontests.onrender.com/api/v1/all';
+  static final String apiUrl = 'https://kontests.net/api/v1/all';
 }
