@@ -62,6 +62,7 @@ class NotificationConstants {
 
 class SettingsConstants {
   static const String appBarTitle = 'Settings';
+  static const String bottomNavBarTitle = 'Settings';
 
   static const String themeHeading = 'App Theme';
   static const String systemThemeName = 'System Default';

@@ -18,6 +18,7 @@ class _BottomNavigationState extends State<BottomNavigation> {
   int _selectedPageIndex = 0;
   final HomePage _homePage = const HomePage();
   final FavoritesPage _favoritesPage = const FavoritesPage();
+  final SettingsPage _settingsPage = const SettingsPage();
 
   String _getTitle(Widget screen) {
     switch (screen.runtimeType) {
@@ -25,6 +26,8 @@ class _BottomNavigationState extends State<BottomNavigation> {
         return HomePageConstants.appBarTitle;
       case FavoritesPage:
         return FavoritesPageConstants.appBarTitle;
+      case SettingsPage:
+        return SettingsConstants.appBarTitle;
       default:
         return '';
     }
@@ -41,20 +44,12 @@ class _BottomNavigationState extends State<BottomNavigation> {
     List screens = [
       _homePage,
       _favoritesPage,
+      _settingsPage,
     ];
 
     return Scaffold(
       appBar: AppBar(
         title: Text(_getTitle(screens[_selectedPageIndex])),
-        actions: [
-          IconButton(
-              onPressed: () {
-                Navigator.of(context).push(MaterialPageRoute(
-                  builder: (context) => const SettingsPage(),
-                ));
-              },
-              icon: const Icon(Icons.settings_outlined)),
-        ],
       ),
       body: screens[_selectedPageIndex],
       bottomNavigationBar: NavigationBar(
@@ -69,6 +64,10 @@ class _BottomNavigationState extends State<BottomNavigation> {
           NavigationDestination(
             label: FavoritesPageConstants.bottomNavBarTitle,
             icon: Icon(Icons.favorite_rounded),
+          ),
+          NavigationDestination(
+            label: SettingsConstants.bottomNavBarTitle,
+            icon: Icon(Icons.settings),
           ),
         ],
       ),
