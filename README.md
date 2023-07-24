@@ -5,18 +5,22 @@
 
 # Coding Contests Reminders for Competitive Programmers
 
+<div align="center">
+  <img src="imgs/IzzyOnDroid.png" height=110></img>
+</div>
+
 # About
 Snow is a simple, beautiful, no non-sense, cross-platform  mobile app which gives reminders about upcoming programming contests.
 
 ## Screenshots
 
 ### Dark Theme
-| <img src = "screenshots/home_dark.png" width = 192></img> | <img src = "screenshots/filters_dark.png" width = 192></img> | <img src = "screenshots/fav_dark.png" width = 192></img> | <img src = "screenshots/settings_dark.png" width = 192></img> |
+| <img src = "imgs/home_dark.png" width = 192></img> | <img src = "imgs/filters_dark.png" width = 192></img> | <img src = "imgs/fav_dark.png" width = 192></img> | <img src = "imgs/settings_dark.png" width = 192></img> |
 | :-: | :-: | :-: | :-: |
 | Home | Filters | Favorites | Settings |
 
 ### Light Theme
-| <img src = "screenshots/home_light.png" width = 192></img> | <img src = "screenshots/filters_light.png" width = 192></img> | <img src = "screenshots/fav_light.png" width = 192></img> | <img src = "screenshots/settings_light.png" width = 192></img> |
+| <img src = "imgs/home_light.png" width = 192></img> | <img src = "imgs/filters_light.png" width = 192></img> | <img src = "imgs/fav_light.png" width = 192></img> | <img src = "imgs/settings_light.png" width = 192></img> |
 | :-: | :-: | :-: | :-: |
 | Home | Filters | Favorites | Settings |
 
@@ -71,7 +75,7 @@ cp ./build/app/outputs/flutter-apk/app-release.apk ~/Desktop
 Now you should be able to find the `app-release.apk` on your desktop.
 
 # Support
-If you have run into an issue while using the app then try clearing the app cache and date. If that does not solve the problem then feel free to report it on the [issues page](https://github.com/sahej-dev/Snow/issues). Reported bugs tend to be quashed sooner.
+If you have run into an issue while using the app then try clearing the app cache and data. If that does not solve the problem then feel free to report it on the [issues page](https://github.com/sahej-dev/Snow/issues). Reported bugs tend to be quashed sooner.
 
 # Development
 
@@ -95,7 +99,7 @@ If you are not a programmer but woule like to support Snow you can do that:
 Please read [CONTRIBUTING.md](CONTRIBUTING.md) before making a contribution.
 
 ## Author(s)
-Lead Engineer, Designer, and Developer: [Sahej A. Singh](https://www.sahej.io)
+Engineer, Designer, and Developer: [Sahej A. Singh](https://www.sahej.io)
 
 # Background
 Snow was originally a Discord bot that me and a friend made during online university in 2020, which supported only two platforms: CodeChef and Codeforces. Later it evolved into a, now discontinued, mobile app (now called [Snow Classic](https://github.com/sahej-dev/Snow/tree/classic)). Snow Classic had a static and hardcoded light theme, used provider (in a very bad way) to manage state, and notifications did not work on my OnePlus device but worked flawlessly on a friend's Samsung. Being very new to app development at the time, Snow Classic of course turned out to have very bad architecture (if it had one at all). It worked but changing, adding anything was a pain. So I began a rewrite of the app, and this is what we have.
