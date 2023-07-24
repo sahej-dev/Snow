@@ -6,7 +6,7 @@
 # Coding Contests Reminders for Competitive Programmers
 
 <div align="center">
-  <img src="imgs/IzzyOnDroid.png" height=110></img>
+  <a href="https://apt.izzysoft.de/packages/com.sahej.snow/" target="_blank" rel="noopener"> <img src="imgs/IzzyOnDroid.png" height=110></img> </a>
 </div>
 
 # About
