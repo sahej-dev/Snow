@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'package:equatable/equatable.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
 import 'package:json_annotation/json_annotation.dart';
@@ -20,6 +18,7 @@ class ContestsBloc extends HydratedBloc<ContestsEvent, ContestsState> {
     on<ContestsEventJudgeFilterToggleRequested>(_onJudgeFilterToggled);
     on<ContestsEventStatusFilterToggleRequested>(_onStatusFilterToggled);
     on<ContestsEventMaxDurationFilterChanged>(_onMaxDurationFilterChanged);
+    on<ContestsEventSortByRequested>(_onSortByRequested);
   }
 
   void _onContestsLoadRequested(
@@ -30,6 +29,7 @@ class ContestsBloc extends HydratedBloc<ContestsEvent, ContestsState> {
       selectedJudges: state.selectedJudges,
       selectedStatuses: state.selectedStatuses,
       maxDurationFilter: state.maxDurationFilter,
+      contestsSortBy: state.contestsSortBy,
     ));
 
     List<Contest>? contests = await _contestsRepository.getContestsList(
@@ -50,6 +50,7 @@ class ContestsBloc extends HydratedBloc<ContestsEvent, ContestsState> {
         state.selectedJudges,
         state.selectedStatuses,
         state.maxDurationFilter,
+        state.contestsSortBy,
       ));
     }
   }
@@ -78,6 +79,7 @@ class ContestsBloc extends HydratedBloc<ContestsEvent, ContestsState> {
       state.selectedJudges,
       state.selectedStatuses,
       state.maxDurationFilter,
+      state.contestsSortBy,
     ));
 
     _contestsRepository.setFavoriteStatus(
@@ -98,6 +100,7 @@ class ContestsBloc extends HydratedBloc<ContestsEvent, ContestsState> {
       onlineLoadStatus: state.onlineLoadStatus,
       cachedLoadStatus: state.cachedLoadStatus,
       maxDurationFilter: state.maxDurationFilter,
+      contestsSortBy: state.contestsSortBy,
     ));
 
     List<Judge> newSelectedJudges = [...state.selectedJudges];
@@ -124,6 +127,7 @@ class ContestsBloc extends HydratedBloc<ContestsEvent, ContestsState> {
       newSelectedJudges,
       state.selectedStatuses,
       state.maxDurationFilter,
+      state.contestsSortBy,
     ));
   }
 
@@ -139,6 +143,7 @@ class ContestsBloc extends HydratedBloc<ContestsEvent, ContestsState> {
       onlineLoadStatus: state.onlineLoadStatus,
       cachedLoadStatus: state.cachedLoadStatus,
       maxDurationFilter: state.maxDurationFilter,
+      contestsSortBy: state.contestsSortBy,
     ));
 
     List<ContestStatus> newSelectedStatuses = [...state.selectedStatuses];
@@ -164,6 +169,7 @@ class ContestsBloc extends HydratedBloc<ContestsEvent, ContestsState> {
       state.selectedJudges,
       newSelectedStatuses,
       state.maxDurationFilter,
+      state.contestsSortBy,
     ));
   }
 
@@ -177,6 +183,7 @@ class ContestsBloc extends HydratedBloc<ContestsEvent, ContestsState> {
       onlineLoadStatus: state.onlineLoadStatus,
       cachedLoadStatus: state.cachedLoadStatus,
       maxDurationFilter: state.maxDurationFilter,
+      contestsSortBy: state.contestsSortBy,
     ));
 
     if (allContests.isEmpty) {
@@ -195,6 +202,25 @@ class ContestsBloc extends HydratedBloc<ContestsEvent, ContestsState> {
       state.selectedJudges,
       state.selectedStatuses,
       event.newDurationFilter,
+      state.contestsSortBy,
+    ));
+  }
+
+  void _onSortByRequested(
+    ContestsEventSortByRequested event,
+    Emitter<ContestsState> emit,
+  ) {
+    if (event.contestsSortBy == state.contestsSortBy) return;
+    if (state is! ContestsStateLoaded) return;
+
+    emit(ContestsStateLoaded(
+      state._contests,
+      state.onlineLoadStatus,
+      state.cachedLoadStatus,
+      state.selectedJudges,
+      state.selectedStatuses,
+      state.maxDurationFilter,
+      event.contestsSortBy,
     ));
   }
 
@@ -207,6 +233,7 @@ class ContestsBloc extends HydratedBloc<ContestsEvent, ContestsState> {
         selectedJudges: state.selectedJudges,
         selectedStatuses: state.selectedStatuses,
         maxDurationFilter: state.maxDurationFilter,
+        contestsSortBy: state.contestsSortBy,
       );
     } catch (e) {
       return null;
@@ -220,6 +247,7 @@ class ContestsBloc extends HydratedBloc<ContestsEvent, ContestsState> {
           selectedJudges: state.selectedJudges,
           selectedStatuses: state.selectedStatuses,
           maxDurationFilter: state.maxDurationFilter,
+          contestsSortBy: state.contestsSortBy,
         ),
       );
 }

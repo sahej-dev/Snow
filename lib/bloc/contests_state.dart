@@ -18,6 +18,8 @@ class MaxDurationFilter extends Equatable {
   Map<String, dynamic> toJson() => _$MaxDurationFilterToJson(this);
 }
 
+enum ContestsSortBy { nearestFirst, nearestLast, shorterFirst, longerFirst }
+
 abstract class ContestsState extends Equatable {
   const ContestsState({
     required List<Contest> contests,
@@ -26,6 +28,7 @@ abstract class ContestsState extends Equatable {
     required this.selectedJudges,
     required this.selectedStatuses,
     required this.maxDurationFilter,
+    this.contestsSortBy = ContestsSortBy.nearestFirst,
   }) : _contests = contests;
 
   final List<Contest> _contests;
@@ -34,6 +37,7 @@ abstract class ContestsState extends Equatable {
   final List<Judge> selectedJudges;
   final List<ContestStatus> selectedStatuses;
   final MaxDurationFilter maxDurationFilter;
+  final ContestsSortBy contestsSortBy;
 
   final List<Judge> allJudges = const [
     Judge.atCoder,
@@ -61,6 +65,7 @@ abstract class ContestsState extends Equatable {
         selectedJudges,
         selectedStatuses,
         maxDurationFilter,
+        contestsSortBy,
         _contests,
       ];
 
@@ -107,6 +112,7 @@ class ContestsStateInitial extends ContestsState {
     ],
     MaxDurationFilter maxDurationFilter =
         const MaxDurationFilter(MaxDurationFilter.infiniteDuration, false),
+    ContestsSortBy contestsSortBy = ContestsSortBy.nearestFirst,
   }) : super(
           contests: const [],
           onlineLoadStatus: ContestsLoadStatus.unknown,
@@ -114,6 +120,7 @@ class ContestsStateInitial extends ContestsState {
           selectedJudges: selectedJudges,
           selectedStatuses: selectedStatuses,
           maxDurationFilter: maxDurationFilter,
+          contestsSortBy: contestsSortBy,
         );
 }
 
@@ -122,6 +129,7 @@ class ContestsStateLoading extends ContestsState {
     required super.selectedJudges,
     required super.selectedStatuses,
     required MaxDurationFilter maxDurationFilter,
+    required ContestsSortBy contestsSortBy,
     ContestsLoadStatus? onlineLoadStatus,
     ContestsLoadStatus? cachedLoadStatus,
   }) : super(
@@ -129,6 +137,7 @@ class ContestsStateLoading extends ContestsState {
           onlineLoadStatus: onlineLoadStatus ?? ContestsLoadStatus.unknown,
           cachedLoadStatus: cachedLoadStatus ?? ContestsLoadStatus.unknown,
           maxDurationFilter: maxDurationFilter,
+          contestsSortBy: contestsSortBy,
         );
 }
 
@@ -140,6 +149,7 @@ class ContestsStateLoaded extends ContestsState {
     List<Judge> selectedJudges,
     List<ContestStatus> selectedStatuses,
     MaxDurationFilter maxDurationFilter,
+    ContestsSortBy contestsSortBy,
   ) : super(
           contests: contests,
           onlineLoadStatus: onlineLoadStatus,
@@ -147,7 +157,37 @@ class ContestsStateLoaded extends ContestsState {
           selectedJudges: selectedJudges,
           selectedStatuses: selectedStatuses,
           maxDurationFilter: maxDurationFilter,
+          contestsSortBy: contestsSortBy,
         );
+
+  List<Contest> get sortedAndFilteredContests {
+    List<Contest> sortedContests = [...filteredContests];
+    switch (contestsSortBy) {
+      case ContestsSortBy.nearestFirst:
+        sortedContests.sort(
+          (a, b) => a.startDateTime.compareTo(b.startDateTime),
+        );
+        break;
+      case ContestsSortBy.nearestLast:
+        sortedContests.sort(
+          (a, b) => b.startDateTime.compareTo(a.startDateTime),
+        );
+        break;
+      case ContestsSortBy.shorterFirst:
+        sortedContests.sort(
+          (a, b) => a.duration.compareTo(b.duration),
+        );
+        break;
+      case ContestsSortBy.longerFirst:
+        sortedContests.sort(
+          (a, b) => b.duration.compareTo(a.duration),
+        );
+        break;
+      default:
+    }
+
+    return sortedContests;
+  }
 }
 
 class ContestsStateAllLoadFailed extends ContestsState {

@@ -65,6 +65,8 @@ class HomePageView extends StatelessWidget {
               );
             }
             // log('selector built');
+            final List<Contest> sortedAndFilteredContests =
+                state.sortedAndFilteredContests;
             return RefreshIndicator(
               onRefresh: () async {
                 context
@@ -73,8 +75,8 @@ class HomePageView extends StatelessWidget {
               },
               child: ListView.builder(
                 itemCount: state.onlineLoadStatus == ContestsLoadStatus.success
-                    ? state.filteredContests.length
-                    : state.filteredContests.length + 1,
+                    ? sortedAndFilteredContests.length
+                    : sortedAndFilteredContests.length + 1,
                 itemBuilder: (context, i) {
                   int idx = i;
                   if (idx == 0 &&
@@ -88,7 +90,7 @@ class HomePageView extends StatelessWidget {
                   return Padding(
                     padding:
                         const EdgeInsets.only(bottom: kdefaultPadding * 0.6),
-                    child: ContestTile(contest: state.filteredContests[idx]),
+                    child: ContestTile(contest: sortedAndFilteredContests[idx]),
                   );
                 },
               ),

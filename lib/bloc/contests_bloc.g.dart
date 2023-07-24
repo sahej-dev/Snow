@@ -48,6 +48,9 @@ ContestsStateInitial _$ContestsStateInitialFromJson(
           ? const MaxDurationFilter(MaxDurationFilter.infiniteDuration, false)
           : MaxDurationFilter.fromJson(
               json['maxDurationFilter'] as Map<String, dynamic>),
+      contestsSortBy: $enumDecodeNullable(
+              _$ContestsSortByEnumMap, json['contestsSortBy']) ??
+          ContestsSortBy.nearestFirst,
     );
 
 Map<String, dynamic> _$ContestsStateInitialToJson(
@@ -59,6 +62,7 @@ Map<String, dynamic> _$ContestsStateInitialToJson(
           .map((e) => _$ContestStatusEnumMap[e]!)
           .toList(),
       'maxDurationFilter': instance.maxDurationFilter,
+      'contestsSortBy': _$ContestsSortByEnumMap[instance.contestsSortBy]!,
     };
 
 const _$JudgeEnumMap = {
@@ -79,4 +83,11 @@ const _$ContestStatusEnumMap = {
   ContestStatus.upcoming: 'upcoming',
   ContestStatus.upcomingIn24Hrs: 'upcomingIn24Hrs',
   ContestStatus.unknown: 'unknown',
+};
+
+const _$ContestsSortByEnumMap = {
+  ContestsSortBy.nearestFirst: 'nearestFirst',
+  ContestsSortBy.nearestLast: 'nearestLast',
+  ContestsSortBy.shorterFirst: 'shorterFirst',
+  ContestsSortBy.longerFirst: 'longerFirst',
 };

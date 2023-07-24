@@ -54,3 +54,12 @@ class ContestsEventMaxDurationFilterChanged extends ContestsEvent {
   @override
   List<Object> get props => [newDurationFilter];
 }
+
+class ContestsEventSortByRequested extends ContestsEvent {
+  final ContestsSortBy contestsSortBy;
+
+  const ContestsEventSortByRequested(this.contestsSortBy);
+
+  @override
+  List<Object> get props => [contestsSortBy];
+}

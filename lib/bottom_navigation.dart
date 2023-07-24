@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import './constants/strings.dart';
+import './constants/ui.dart';
+import './bloc/contests_bloc.dart';
 import './home_page/home_page.dart';
 import './settings_page/settings_page.dart';
 import './favorites_page/favorites_page.dart';
@@ -50,6 +53,50 @@ class _BottomNavigationState extends State<BottomNavigation> {
     return Scaffold(
       appBar: AppBar(
         title: Text(_getTitle(screens[_selectedPageIndex])),
+        actions: [
+          BlocBuilder<ContestsBloc, ContestsState>(
+            builder: (context, state) {
+              if (state is! ContestsStateLoaded || _selectedPageIndex != 0) {
+                return const SizedBox.shrink();
+              }
+
+              return Padding(
+                padding: const EdgeInsets.symmetric(
+                    horizontal: kdefaultPadding * 1.5),
+                child: PopupMenuButton<ContestsSortBy>(
+                  child: const Icon(Icons.sort),
+                  itemBuilder: (context) => ContestsSortBy.values
+                      .map(
+                        (value) => PopupMenuItem<ContestsSortBy>(
+                          value: value,
+                          // IIFE trickery
+                          child: Text((() {
+                            switch (value) {
+                              case ContestsSortBy.nearestFirst:
+                                return 'Nearest first';
+                              case ContestsSortBy.nearestLast:
+                                return 'Nearest last';
+                              case ContestsSortBy.shorterFirst:
+                                return 'Shortest first';
+                              case ContestsSortBy.longerFirst:
+                                return 'Longest first';
+                              default:
+                                return value.name;
+                            }
+                          })()),
+                        ),
+                      )
+                      .toList(),
+                  onSelected: (value) {
+                    context
+                        .read<ContestsBloc>()
+                        .add(ContestsEventSortByRequested(value));
+                  },
+                ),
+              );
+            },
+          ),
+        ],
       ),
       body: screens[_selectedPageIndex],
       bottomNavigationBar: NavigationBar(
