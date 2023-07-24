@@ -82,7 +82,7 @@ If you have run into an issue while using the app then try clearing the app cach
 ## Roadmap
 The following features, in no particular order, are planned to be added to Snow:
 
-- [ ] Ability to sort contests
+- [x] Ability to sort contests
 - [x] Custom accent color chooser (overwriting wallpaper accent color)
 - [ ] Custom notification timings chooser
 
