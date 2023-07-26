@@ -1,0 +1,5 @@
+* Settings have been moved to the bottom navigation bar
+* A sort-by icon has been added to the top app bar on the home page
+* Integration with IzzyOnDroid f-droid app repository by @IzzySoft
+* Updated with screenshots from the latest version
+* Dependencies have been updated
