@@ -6,7 +6,7 @@
 # Coding Contests Reminders for Competitive Programmers
 
 <div align="center">
-  <a href="https://apt.izzysoft.de/packages/com.sahej.snow/" target="_blank" rel="noopener"> <img src="imgs/IzzyOnDroid.png" height=110></img> </a>
+  <a href="https://apt.izzysoft.de/packages/com.sahej.snow/" target="_blank" rel="noopener"> <img src="fastlane/metadata/android/en-US/images/phoneScreenshots/IzzyOnDroid.png" height=110></img> </a>
 </div>
 
 # About
@@ -15,12 +15,12 @@ Snow is a simple, beautiful, no non-sense, cross-platform  mobile app which give
 ## Screenshots
 
 ### Dark Theme
-| <img src = "imgs/home_dark.png" width = 192></img> | <img src = "imgs/filters_dark.png" width = 192></img> | <img src = "imgs/fav_dark.png" width = 192></img> | <img src = "imgs/settings_dark.png" width = 192></img> |
+| <img src = "fastlane/metadata/android/en-US/images/phoneScreenshots/01-home_dark.jpg" width = 192></img> | <img src = "fastlane/metadata/android/en-US/images/phoneScreenshots/02-filters_dark.jpg" width = 192></img> | <img src = "fastlane/metadata/android/en-US/images/phoneScreenshots/03-fav_dark.jpg" width = 192></img> | <img src = "fastlane/metadata/android/en-US/images/phoneScreenshots/04-settings_dark.jpg" width = 192></img> |
 | :-: | :-: | :-: | :-: |
 | Home | Filters | Favorites | Settings |
 
 ### Light Theme
-| <img src = "imgs/home_light.png" width = 192></img> | <img src = "imgs/filters_light.png" width = 192></img> | <img src = "imgs/fav_light.png" width = 192></img> | <img src = "imgs/settings_light.png" width = 192></img> |
+| <img src = "fastlane/metadata/android/en-US/images/phoneScreenshots/05-home_light.jpg" width = 192></img> | <img src = "fastlane/metadata/android/en-US/images/phoneScreenshots/06-filters_light.jpg" width = 192></img> | <img src = "fastlane/metadata/android/en-US/images/phoneScreenshots/07-fav_light.jpg" width = 192></img> | <img src = "fastlane/metadata/android/en-US/images/phoneScreenshots/08-settings_light.jpg" width = 192></img> |
 | :-: | :-: | :-: | :-: |
 | Home | Filters | Favorites | Settings |
 
