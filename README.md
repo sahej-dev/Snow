@@ -3,6 +3,12 @@
   <h1 align="center">✨ Snow ✨</h1>
 </div>
 
+![Licence](https://img.shields.io/github/license/sahej-dev/snow?style=flat-square)
+![GitHub all releases downloads](https://img.shields.io/github/downloads/sahej-dev/snow/total?style=flat-square&color=B432FA)
+![GitHub repo size](https://img.shields.io/github/repo-size/sahej-dev/snow?style=flat-square)
+
+
+
 # Coding Contests Reminders for Competitive Programmers
 
 <div align="center">
