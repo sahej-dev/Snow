@@ -26,7 +26,7 @@ Snow is a simple, beautiful, no non-sense, cross-platform  mobile app which give
 
 ## Features
 - View upcoming and ongoing contests from supported platforms
-- 10+ supported platforms, including At Coder, Codeforeces, Hacker Earth etc.
+- 10+ supported platforms, including At Coder, Codeforces, Hacker Earth etc.
 - Favorite a contest to receive reminders before its start time
 - Dynamic, Dark, and Light theme support
 - Beautifully designed with Material3 (You) design spec
