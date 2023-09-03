@@ -11,11 +11,8 @@
 
 # Coding Contests Reminders for Competitive Programmers
 
-<!-- <div align="center"> -->
-| <a href="https://apt.izzysoft.de/packages/com.sahej.snow/" target="_blank" rel="noopener"> <img src="imgs/IzzyOnDroid.png" height=110></img> </a> | <a href="https://apt.izzysoft.de/packages/com.sahej.snow/" target="_blank" rel="noopener"> <img src="imgs/google-play-badge.png" height=110></img> </a> |
+| <a href="https://apt.izzysoft.de/packages/com.sahej.snow/" target="_blank" rel="noopener"> <img src="imgs/IzzyOnDroid.png" height=110></img> </a> | <a href="https://play.google.com/store/apps/details?id=com.sahej.snow" target="_blank" rel="noopener"> <img src="imgs/google-play-badge.png" height=110></img> </a> |
 | :-: | :-: |
-| | |
-<!-- </div> -->
 
 # About
 Snow is a simple, beautiful, no non-sense, cross-platform  mobile app which gives reminders about upcoming programming contests.
