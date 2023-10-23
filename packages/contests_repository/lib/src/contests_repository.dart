@@ -31,6 +31,11 @@ class ContestsRepository {
 
     _contestsList?.sort((a, b) => a.startDateTime.compareTo(b.startDateTime));
 
+    if (_contestsList != null) {
+      _contestsList = _removeEndedContests(_contestsList!);
+      _contestsList = _fixContestsStatuses(_contestsList!);
+    }
+
     return _contestsList;
   }
 
@@ -90,9 +95,6 @@ class ContestsRepository {
 
       _contestsList!.add(toBeAddedContest);
     }
-
-    _contestsList = _removeEndedContests(_contestsList!);
-    _contestsList = _fixContestsStatuses(_contestsList!);
   }
 
   List<Contest> _removeEndedContests(List<Contest> contests) {
