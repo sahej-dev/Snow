@@ -90,6 +90,39 @@ class ContestsRepository {
 
       _contestsList!.add(toBeAddedContest);
     }
+
+    _contestsList = _removeEndedContests(_contestsList!);
+    _contestsList = _fixContestsStatuses(_contestsList!);
+  }
+
+  List<Contest> _removeEndedContests(List<Contest> contests) {
+    final DateTime now = DateTime.now();
+
+    return contests
+        .where((contest) => contest.endDateTime.isAfter(now))
+        .toList();
+  }
+
+  List<Contest> _fixContestsStatuses(List<Contest> contests) {
+    final DateTime now = DateTime.now();
+    final DateTime aDayFromNow = now.add(const Duration(days: 1));
+    final List<Contest> res = [];
+
+    contests.forEach((contest) {
+      if (contest.startDateTime.isBefore(now)) {
+        if (contest.endDateTime.isAfter(now)) {
+          res.add(contest.copyWith(status: ContestStatus.onGoing));
+        }
+      } else {
+        if (contest.startDateTime.isBefore(aDayFromNow)) {
+          res.add(contest.copyWith(status: ContestStatus.upcomingIn24Hrs));
+        } else {
+          res.add(contest.copyWith(status: ContestStatus.upcoming));
+        }
+      }
+    });
+
+    return res;
   }
 
   Future<List<Contest>?> _loadGetOnlineContests() async {
@@ -199,19 +232,3 @@ class ContestsRepository {
         contestId, jsonEncode(_contestsList![contestIdx].toJson()));
   }
 }
-
-/*
-void main(List<String> args) async {
-  http.Response res =
-      await http.get(Uri.parse('https://kontests.net/api/v1/all'));
-
-  List<dynamic> resJson = jsonDecode(res.body);
-  Map<String, dynamic> apiContest = resJson[50];
-  print(apiContest);
-
-  String jsonString = jsonEncode(Contest.fromApiContest(apiContest).toJson());
-  print(jsonString);
-
-  print(Contest.fromJson(jsonDecode(jsonString)).toJson());
-}
-*/

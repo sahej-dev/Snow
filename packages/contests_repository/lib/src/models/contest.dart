@@ -131,6 +131,30 @@ class Contest with EquatableMixin {
   String get uniqueStr => _uniqueStr;
 
   bool get isFavorite => _isFavorite;
+
+  Contest copyWith({
+    String? id,
+    String? name,
+    Uri? link,
+    DateTime? startDateTime,
+    DateTime? endDateTime,
+    Duration? duration,
+    Judge? judge,
+    ContestStatus? status,
+    bool? isFavorite,
+  }) {
+    return Contest(
+      uuid: id ?? this.id,
+      name: name ?? this.name,
+      link: link ?? this.link,
+      startDateTime: startDateTime ?? this.startDateTime,
+      endDateTime: endDateTime ?? this.endDateTime,
+      duration: duration ?? this.duration,
+      judge: judge ?? this.judge,
+      status: status ?? this.status,
+      isFavorite: isFavorite ?? this._isFavorite,
+    );
+  }
 }
 
 enum Judge {
