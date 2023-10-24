@@ -106,6 +106,7 @@ Please read [CONTRIBUTING.md](CONTRIBUTING.md) before making a contribution.
 ## Contributors
 - [Sahej A. Singh](https://www.sahej.io): Designer and developer
 - [IzzyOnDroid](https://android.izzysoft.de/): All the hard work for app-store hosting of Snow
+- [Pratik Jindal](https://github.com/jindalpratik): Adaptive icon support for Android 13+
 
 # Background
 Snow was originally a Discord bot that me and a friend made during online university in 2020, which supported only two platforms: CodeChef and Codeforces. Later it evolved into a, now discontinued, mobile app (now called [Snow Classic](https://github.com/sahej-dev/Snow/tree/classic)). Snow Classic had a static and hardcoded light theme, used provider (in a very bad way) to manage state, and notifications did not work on my OnePlus device but worked flawlessly on a friend's Samsung. Being very new to app development at the time, Snow Classic of course turned out to have very bad architecture (if it had one at all). It worked but changing, adding anything was a pain. So I began a rewrite of the app, and this is what we have.
