@@ -1,0 +1,4 @@
+* Fixed bug where finished contests were not being flushed
+* Adaptive app icon for Android 13+ by Pratik Jindal (@jindalpratik)
+* Changed app signature to a proper one from a debug signature
+* If you're running version 1.3.0 or a prior one, you will have to uninstall the old version and install the new version, as the signing key changed (see https://github.com/sahej-dev/Snow/issues/13). Apologies for the inconvenience!
