@@ -3,5 +3,6 @@ class LocalStorageConsts {
 }
 
 class ApiConstants {
-  static final String apiUrl = 'https://kontests.net/api/v1/all';
+  static final String apiUrl = 'https://api.snow.sahej.io';
+  // static final String apiUrl = 'http://10.0.2.2:4000';
 }

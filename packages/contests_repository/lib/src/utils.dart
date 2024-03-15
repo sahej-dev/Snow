@@ -13,9 +13,8 @@ class ApiParser {
       'CodeChef': Judge.codechef,
       'HackerRank': Judge.hackerRank,
       'HackerEarth': Judge.hackerEarth,
-      'Kick Start': Judge.kickStart,
       'LeetCode': Judge.leetCode,
-      'Toph': Judge.others
+      'Toph': Judge.others,
     });
 
   static DateTime strToLocalDateTime(String str) {

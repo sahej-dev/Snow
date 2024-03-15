@@ -88,10 +88,6 @@ class ContestsRepository {
         cachedFavMap[apiContest.uniqueStr] ?? false,
         apiContest,
       );
-      if (apiContest.uniqueStr ==
-          'Codeforces Global Round 24 https://codeforces.com/contestRegistration/1764') {
-        log(toBeAddedContest.toString(), name: 'LOADED CONTEST');
-      }
 
       _contestsList!.add(toBeAddedContest);
     }
@@ -176,7 +172,6 @@ class ContestsRepository {
       Contest c = Contest.fromJson(jsonDecode(contestsString));
       cachedContests.add(Contest.withIdAndFav(uuids[i], c.isFavorite, c));
     }
-    log(cachedContests[17].toString(), name: 'LOADED CONTEST RAW');
     return cachedContests;
   }
 

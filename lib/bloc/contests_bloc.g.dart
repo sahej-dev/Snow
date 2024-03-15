@@ -31,7 +31,6 @@ ContestsStateInitial _$ContestsStateInitialFromJson(
             Judge.csAcademy,
             Judge.hackerEarth,
             Judge.hackerRank,
-            Judge.kickStart,
             Judge.leetCode,
             Judge.topCoder,
             Judge.others
@@ -73,7 +72,6 @@ const _$JudgeEnumMap = {
   Judge.codechef: 'codechef',
   Judge.hackerRank: 'hackerRank',
   Judge.hackerEarth: 'hackerEarth',
-  Judge.kickStart: 'kickStart',
   Judge.leetCode: 'leetCode',
   Judge.others: 'others',
 };

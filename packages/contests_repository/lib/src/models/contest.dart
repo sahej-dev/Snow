@@ -166,7 +166,7 @@ enum Judge {
   codechef,
   hackerRank,
   hackerEarth,
-  kickStart,
+  // kickStart,
   leetCode,
   // toph,
   others,

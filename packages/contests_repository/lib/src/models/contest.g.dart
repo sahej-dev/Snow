@@ -36,7 +36,6 @@ const _$JudgeEnumMap = {
   Judge.codechef: 'codechef',
   Judge.hackerRank: 'hackerRank',
   Judge.hackerEarth: 'hackerEarth',
-  Judge.kickStart: 'kickStart',
   Judge.leetCode: 'leetCode',
   Judge.others: 'others',
 };

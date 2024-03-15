@@ -39,18 +39,7 @@ abstract class ContestsState extends Equatable {
   final MaxDurationFilter maxDurationFilter;
   final ContestsSortBy contestsSortBy;
 
-  final List<Judge> allJudges = const [
-    Judge.atCoder,
-    Judge.codechef,
-    Judge.codeforces,
-    Judge.csAcademy,
-    Judge.hackerEarth,
-    Judge.hackerRank,
-    Judge.kickStart,
-    Judge.leetCode,
-    Judge.topCoder,
-    Judge.others
-  ];
+  final List<Judge> allJudges = Judge.values;
 
   final List<ContestStatus> allStatuses = const [
     ContestStatus.upcomingIn24Hrs,
@@ -100,7 +89,6 @@ class ContestsStateInitial extends ContestsState {
       Judge.csAcademy,
       Judge.hackerEarth,
       Judge.hackerRank,
-      Judge.kickStart,
       Judge.leetCode,
       Judge.topCoder,
       Judge.others,
