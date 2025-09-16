@@ -43,8 +43,8 @@ Snow is a simple, beautiful, no non-sense, cross-platform  mobile app which give
 
 # Installation
 
-## Method 1: GitHub (Recommended)
-You can directly download the latest release of the .apk file from the [releases page](https://github.com/sahej-dev/Snow/releases/latest). If you are not sure about which .apk file you should download then just download the one named `snow.apk` from the latest release.
+## Method 1: Play Store
+[Click Here to Download from Play Store](https://play.google.com/store/apps/details?id=com.sahej.snow)
 
 ## Method 2: Build from Source
 
